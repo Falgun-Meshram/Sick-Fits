@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // lets go!
 require("dotenv").config({ path: "variables.env" });
 const createServer = require("./createServer");
@@ -21,3 +22,6 @@ server.start(
     );
   }
 );
+=======
+// let's go!
+>>>>>>> 052c60766f6cce6f278d34ea490888273254e9d3
