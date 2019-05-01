@@ -1,8 +1,11 @@
 node_modules/
+finished-application/*
+stepped-solutions/
 .DS_Store
 *.log
 haters/
 .next/
 .build/
+.vscode/
 layout.md
 variables.env
