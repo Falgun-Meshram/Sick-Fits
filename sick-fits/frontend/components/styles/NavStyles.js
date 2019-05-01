@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const NavStyles = styled.ul`
   margin: 0;
@@ -14,6 +14,8 @@ const NavStyles = styled.ul`
     position: relative;
     text-transform: uppercase;
     font-weight: 900;
+    color: ${props => props.theme.black};
+    font-family: 'radnika_next';
     font-size: 1em;
     background: none;
     border: 0;
@@ -51,6 +53,9 @@ const NavStyles = styled.ul`
       &:after {
         width: calc(100% - 60px);
       }
+    @media (max-width: 700px) {
+        width: calc(100% - 10px);
+    }
     }
   }
   @media (max-width: 1300px) {

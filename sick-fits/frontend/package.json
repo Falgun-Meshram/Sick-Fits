@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start",
     "test": "NODE_ENV=test jest --watch",
+    "test-win": "SET NODE_ENV=test&& jest --watch",
     "heroku-postbuild": "next build"
   },
   "author": "",
@@ -18,18 +19,10 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-plugin-styled-components": "^1.7.1",
     "date-fns": "^2.0.0-alpha.7",
-<<<<<<< HEAD
-    "downshift": "^2.1.4",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "eslint-plugin-prettier": "^2.6.2",
-    "graphql": "^0.13.2",
-=======
     "downshift": "^2.2.3",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
     "graphql": "^14.0.2",
->>>>>>> 052c60766f6cce6f278d34ea490888273254e9d3
     "graphql-tag": "^2.9.2",
     "lodash.debounce": "^4.0.8",
     "next": "^7.0.0",
@@ -50,16 +43,9 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "casual": "^1.5.19",
     "enzyme-to-json": "^3.3.4",
-<<<<<<< HEAD
-    "graphql-tools": "^3.0.2",
-    "jest": "^22.4.4",
-    "jest-transform-graphql": "^2.1.0",
-    "eslint-plugin-prettier": "^2.6.2"
-=======
     "graphql-tools": "^4.0.0",
     "jest": "^23.6.0",
     "jest-transform-graphql": "^2.1.0"
->>>>>>> 052c60766f6cce6f278d34ea490888273254e9d3
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/jest.setup.js",
@@ -69,10 +55,11 @@
     ],
     "transform": {
       "\\.(gql|graphql)$": "jest-transform-graphql",
-      ".*": "babel-jest"
+      ".*": "babel-jest",
+      "^.+\\.js?$": "babel-jest"
     }
   },
-  "//": "This is out babel config, I prefer this over a .babelrc file",
+  "//": "This is our babel config, I prefer this over a .babelrc file",
   "babel": {
     "env": {
       "development": {

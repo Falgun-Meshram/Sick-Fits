@@ -1,13 +1,37 @@
-<<<<<<< HEAD
-// lets go!
-require("dotenv").config({ path: "variables.env" });
-const createServer = require("./createServer");
-const db = require("./db");
+require('dotenv').config({ path: 'variables.env' });
+
+const cookeParser = require('cookie-parser');
+const jwt = require('jsonwebtoken');
+
+const createServer = require('./createServer');
+const db = require('./db');
 
 const server = createServer();
 
-// TODO User express middleware to handle cookies (JWT)
-// TODO User express middleware to populate current user
+// Allow the use of cookies
+server.express.use(cookeParser());
+
+// Customn middleware to handle the Cookies
+server.express.use((req, res, next) => {
+  const { token } = req.cookies;
+  if (token) {
+    const { userId } = jwt.verify(token, process.env.APP_SECRET);
+    req.userId = userId;
+  }
+
+  next();
+});
+
+// Another middleware to populate the request with the user
+server.express.use(async (req, res, next) => {
+  if (!req.userId) return next();
+  const user = await db.query.user(
+    { where: { id: req.userId } },
+    '{id, permissions, email, name}'
+  );
+  req.user = user;
+  next();
+});
 
 server.start(
   {
@@ -17,11 +41,6 @@ server.start(
     },
   },
   deets => {
-    console.log(
-      `Server is now running on port http:localhost:7777${deets.port} `
-    );
+    console.log(`The server is now running on the port ${deets.port}`);
   }
 );
-=======
-// let's go!
->>>>>>> 052c60766f6cce6f278d34ea490888273254e9d3

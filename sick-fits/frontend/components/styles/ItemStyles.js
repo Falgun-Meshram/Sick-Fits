@@ -20,6 +20,7 @@ const Item = styled.div`
     padding: 0 3rem;
     font-size: 1.5rem;
   }
+  
   .buttonList {
     display: grid;
     width: 100%;
